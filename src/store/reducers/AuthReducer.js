@@ -9,8 +9,10 @@ const AuthReducer = (state = initialState, action) => {
   let nextState;
   switch (action.type) {
     case actionTypes.AUTHENTIFICATED:
-      nextState = {isAuthentificated: true};
-      return nextState || state;
+      return {
+        ...state,
+        isAuthentificated: true,
+      };
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import AuthActions from './AuthActions';
+import {Login} from './AuthActions';
 import Types from './Types';
 
-export {AuthActions, Types};
+export {Login, Types};

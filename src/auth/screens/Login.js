@@ -2,10 +2,11 @@ import React from 'react';
 import {StyleSheet, Dimensions, View, StatusBar} from 'react-native';
 import {PrimaryButton, Input} from '../../components';
 import {colors} from '../../constants/colors';
-import {connect} from 'react-redux';
-import {Login as LoginAuth} from '../../store/actions/AuthActions';
+import {useDispatch} from 'react-redux';
+import {Login as LoginAuth} from '../../store/actions';
 
-const Login = ({navigation}) => {
+const Login = () => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.primary} />
@@ -15,7 +16,7 @@ const Login = ({navigation}) => {
       </View>
       <View style={styles.submit}>
         <PrimaryButton
-          onPress={() => LoginAuth()}
+          onPress={() => dispatch(LoginAuth())}
           style={styles.LoginButton}
           title="Login"></PrimaryButton>
       </View>
@@ -23,12 +24,7 @@ const Login = ({navigation}) => {
   );
 };
 
-// const mapDispatchToProps = actions => console.log(actions);
-const mapStateToProps = state => ({
-  isAuthentificated: state.isAuthentificated,
-});
-
-export default connect(mapStateToProps, {LoginAuth})(Login);
+export default Login;
 
 const {width, height} = Dimensions.get('window');
 
