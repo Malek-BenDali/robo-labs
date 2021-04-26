@@ -1,14 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const Welcome = () => {
+const RobotDetails = () => {
   return (
     <View>
-      <Text>Welcome screen</Text>
+      <Text></Text>
     </View>
   );
 };
 
-export default Welcome;
+export default RobotDetails;
 
 const styles = StyleSheet.create({});

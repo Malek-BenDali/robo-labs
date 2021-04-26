@@ -1,1 +1,2 @@
 export const AUTHENTIFICATED = 'AUTHENTIFICATED';
+export const LOGOUT = 'LOGOUT';
