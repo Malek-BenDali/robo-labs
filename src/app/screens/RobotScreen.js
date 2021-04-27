@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
-
 import {CustomHeaderButton} from '../../components';
 import {colors} from '../../constants/colors';
 
@@ -15,7 +14,7 @@ const RobotScreen = ({navigation}) => {
           <Item
             title="Cart"
             iconName="add"
-            onPress={() => navigation.navigate('Cart')}
+            onPress={() => navigation.navigate('AddRobot')}
           />
         </HeaderButtons>
       ),

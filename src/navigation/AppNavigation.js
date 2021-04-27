@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import {RobotDetails, RobotScreen, UsersScreen} from '../app/screens';
+import {RobotDetails, RobotScreen, UsersScreen, AddRobot} from '../app/screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors} from '../constants';
@@ -14,6 +14,7 @@ function Robots() {
     <Stack.Navigator>
       <Stack.Screen name="Robots" component={RobotScreen} />
       <Stack.Screen name="RobotDetails" component={RobotDetails} />
+      <Stack.Screen name="AddRobot" component={AddRobot} />
     </Stack.Navigator>
   );
 }
@@ -44,7 +45,15 @@ export default function AppNavigation() {
           ),
         }}
       />
-      <Drawer.Screen name="Users" component={Users} />
+      <Drawer.Screen
+        name="Users"
+        component={Users}
+        options={{
+          drawerIcon: drawerConfig => (
+            <Ionicons name="person" size={23} color={drawerConfig.color} />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 }

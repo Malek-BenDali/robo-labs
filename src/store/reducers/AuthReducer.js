@@ -5,8 +5,7 @@ const initialState = {
   //add
 };
 
-const AuthReducer = (state = initialState, action) => {
-  let nextState;
+export default (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTHENTIFICATED:
       return {
@@ -17,5 +16,3 @@ const AuthReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default AuthReducer;
