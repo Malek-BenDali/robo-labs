@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     case actionTypes.ADD_ROBOT:
       const {name} = action.payload;
       const newRobot = new Robot(uuid.v4(), name, Date.now(), true);
-      return {...state, newRobot};
+      return {...state, robots: [...state.robots, newRobot]};
     default:
       return state;
   }

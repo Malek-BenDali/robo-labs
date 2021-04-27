@@ -1,8 +1,11 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, StatusBar, FlatList} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import {CustomHeaderButton} from '../../components';
 import {colors} from '../../constants/colors';
+import {useSelector} from 'react-redux';
+import {RobotItem, HeaderList} from '../components';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const RobotScreen = ({navigation}) => {
   useEffect(() => {
@@ -29,10 +32,23 @@ const RobotScreen = ({navigation}) => {
       ),
     });
   }, []);
+  const {robots} = useSelector(state => state.robots);
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.primary} />
-      <Text>RobotScreen</Text>
+      <FlatList
+        data={robots}
+        renderItem={({item}) => <RobotItem item={item} />}
+        keyExtractor={item => item.id}
+        ListHeaderComponent={() => <HeaderList />}
+        ListEmptyComponent={() => (
+          <>
+            <Text style={styles.empty}>
+              vous n'avez aucun robot <FontAwesome5 size={25} name="robot" />
+            </Text>
+          </>
+        )}
+      />
     </View>
   );
 };
@@ -43,5 +59,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+  },
+  empty: {
+    alignSelf: 'center',
+    marginTop: 5,
+    fontFamily: 'Poppins-Regular',
   },
 });

@@ -1,9 +1,9 @@
 class Robot {
-  constructor(id, name, date, etat) {
+  constructor(id, name, date, disponibile) {
     this.id = id;
     this.name = name;
     this.date = date;
-    this.etat = etat;
+    this.disponibile = disponibile;
   }
 }
 export default Robot;

@@ -30,7 +30,8 @@ const AddRobot = ({navigation}) => {
         <PrimaryButton
           onPress={handleClick}
           style={styles.LoginButton}
-          title="Login"></PrimaryButton>
+          title="Ajouter"
+        />
       </View>
     </View>
   );
