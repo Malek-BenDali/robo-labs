@@ -33,6 +33,8 @@ const RobotScreen = ({navigation}) => {
     });
   }, []);
   const {robots} = useSelector(state => state.robots);
+  let header;
+  if (robots.length > 0) header = <HeaderList />;
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.primary} />
@@ -40,7 +42,7 @@ const RobotScreen = ({navigation}) => {
         data={robots}
         renderItem={({item}) => <RobotItem item={item} />}
         keyExtractor={item => item.id}
-        ListHeaderComponent={() => <HeaderList />}
+        ListHeaderComponent={header}
         ListEmptyComponent={() => (
           <>
             <Text style={styles.empty}>
